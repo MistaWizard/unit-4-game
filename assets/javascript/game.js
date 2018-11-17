@@ -1,38 +1,111 @@
+// Variable to set random Pokedex number
+var pokeDexNumber = Math.floor(Math.random() * 101) +19;
+$("#pokeNumber").text(pokeDexNumber);
+
+// Variables to set the random Pokescore numbers for each of the four starter Pokemon
+var pikaNum = Math.floor(Math.random() * 11) + 1;
+var charmNum = Math.floor(Math.random() * 11) + 1;
+var squiNum = Math.floor(Math.random() * 11) + 1;
+var bulbNum = Math.floor(Math.random() * 11) + 1;
+
+// The beginning Pokescore should be set to 0
+var pokeScore = 0;
+$("#playerScore").text(pokeScore);
+
+// Variables to set the wins and losses on page load
 var winCounter = 0;
 var lossCounter = 0;
+$('#pokeWins').text(winCounter);
+$('#pokeLosses').text(lossCounter);
 
 // Function used to start the game
 function startGame() {
-    // Determine the random Pokedex number and write it to the proper section of the html
-    pokedexNumber = Math.floor(Math.random() * 102) + 19;
-    document.getElementById("pokeNumber").innerHTML = " " + pokedexNumber;
-  }
 
-  // Our function to add Pokemon Pokedex numbers to determine player score
-// function  {
+  // Reset Pokescore at the beginning of the game
+  pokeScore = 0;
+  $("#playerScore").text(pokeScore);
 
-//   }
+  // Determine the random Pokedex number and write it to the proper section of the html
+  pokedexNumber = Math.floor(Math.random() * 101) + 19;
+  $("#pokeNumber").text(pokeDexNumber);
 
-//   // Function to finish the round and determine if the player wins or loses and ends the round
-// function roundComplete() {
-//     console.log("WinCount: " + winCounter + " | LossCount: " + lossCounter);
-//     document.getElementById("").innerHTML = numGuesses;
-//     document.getElementById("").innerHTML = blanksAndSuccesses.join(" ");
-//     document.getElementById("").innerHTML = wrongGuesses.join(" ");
+  // Run the math to determine the values of each Pokemon
+  pikaNum = Math.floor(Math.random() * 11) + 1;
+  charmNum = Math.floor(Math.random() * 11) + 1;
+  squiNum = Math.floor(Math.random() * 11) + 1;
+  bulbNum = Math.floor(Math.random() * 11) + 1;
+}
+
+// Only winners get to see this function
+function win() {
+
+	alert("You win!");
+	winCounter ++;
+	$("#pokeWins").text(winCounter);
+	startGame();
+}
+
+// Try harder if you see this alot
+function lose() {
+
+	alert("You lose!");
+	lossCounter ++;
+	$("#pokeLosses").text(lossCounter);
+	startGame();
+}
+
+// Pikachu button
+$('#pika').on ('click', function(){
+    pokeScore = pokeScore + pikaNum;
     
-//     if (lettersInChosenWord.toString() === blanksAndSuccesses.toString()) {
-//       winCounter++;
-//       alert("You win!");
-//       document.getElementById("win-counter").innerHTML = winCounter;
-//       startGame();
-//     }
-  
-//     else if (numGuesses === 0) {
-//       lossCounter++;
-//       alert("You lose");
-//       document.getElementById("loss-counter").innerHTML = lossCounter;
-//       startGame();
-//     }
-//   }
+    $('#playerScore').text(pokeScore); 
+          
+        if (pokeScore == pokeDexNumber){
+          win();
+        }
+        else if (pokeScore > pokeDexNumber){
+          lose();
+        }   
+  });  
 
-  startGame();
+// Charmander button
+$('#charm').on ('click', function(){
+    pokeScore = pokeScore + charmNum;
+    
+    $('#playerScore').text(pokeScore); 
+         
+        if (pokeScore == pokeDexNumber){
+          win();
+        }
+        else if (pokeScore > pokeDexNumber){
+          lose();
+        }   
+  });  
+
+// Squirtle button
+$('#squi').on ('click', function(){
+    pokeScore = pokeScore + squiNum;
+    
+    $('#playerScore').text(pokeScore); 
+          
+        if (pokeScore == pokeDexNumber){
+          win();
+        }
+        else if (pokeScore > pokeDexNumber){
+          lose();
+        }   
+  });  
+
+// Bulbasaur button
+$('#bulb').on ('click', function(){
+    pokeScore = pokeScore + bulbNum;
+    
+    $('#playerScore').text(pokeScore); 
+         
+        if (pokeScore == pokeDexNumber){
+          win();
+        }
+        else if (pokeScore > pokeDexNumber){
+          lose();
+        }   
+}); 
