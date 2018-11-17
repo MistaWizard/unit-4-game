@@ -1,0 +1,23 @@
+body {
+    font-family: 'Bitter', serif;
+}
+
+.heading {
+    text-align: center;
+    font-size: 50px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.instruct {
+    margin-top: 20px;
+    margin-left: 50px;
+    margin-right: 50px;
+    padding: 10px;
+    line-height: 20px;
+}
+
+#whatHappened {
+    font-size: 50px;
+    color: blue;
+}

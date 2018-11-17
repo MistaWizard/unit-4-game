@@ -26,7 +26,7 @@ function startGame() {
   $("#playerScore").text(pokeScore);
 
   // Determine the random Pokedex number and write it to the proper section of the html
-  pokedexNumber = Math.floor(Math.random() * 101) + 19;
+  pokeDexNumber = Math.floor(Math.random() * 101) + 19;
   $("#pokeNumber").text(pokeDexNumber);
 
   // Run the math to determine the values of each Pokemon
@@ -39,7 +39,7 @@ function startGame() {
 // Only winners get to see this function
 function win() {
 
-	alert("You win!");
+	$("#whatHappened").text("You win!");
 	winCounter ++;
 	$("#pokeWins").text(winCounter);
 	startGame();
@@ -48,7 +48,7 @@ function win() {
 // Try harder if you see this alot
 function lose() {
 
-	alert("You lose!");
+	$("#whatHappened").text("Try Again!");
 	lossCounter ++;
 	$("#pokeLosses").text(lossCounter);
 	startGame();
